@@ -1,0 +1,18 @@
+[user]
+	name = Christopher Martin
+	email = ch.martin@gmail.com
+[core]
+	excludesfile = ~/.gitignore
+  editor = vim
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    llog = log --date=local
+[log]
+    date = local
+
