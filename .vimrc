@@ -126,17 +126,6 @@ map <silent> <C-t> <Esc>:tabnew<CR>
 map <silent> <C-y> <Esc>:tabclose<CR>
 map <M-Right> <Esc>:tabnext<CR>
 map <M-Left> <Esc>:tabprevious<CR>
-map <silent> <F4> <Esc>:NERDTreeToggle<CR>
-
-function OnVimOpen()
-silent NERDTree
-wincmd p
-endfunction
-
-function OnBufferWinEnter()
-silent NERDTreeMirror
-wincmd p
-endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
