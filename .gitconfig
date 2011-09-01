@@ -8,6 +8,8 @@
   diff = auto
   status = auto
   branch = auto
+  ui = auto
+  interactive = auto
 [alias]
   st = status
   co = checkout
@@ -15,4 +17,8 @@
   llog = log --date=local
 [log]
   date = local
+[format]
+  pretty = %h %Cgreen%cN%Creset (%cr): %s
+[merge]
+  tool = vimdiff
 
