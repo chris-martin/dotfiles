@@ -18,7 +18,7 @@
 [log]
   date = local
 [format]
-  pretty = %h %Cgreen%cN%Creset (%cr): %s
+  pretty = %Cgreen%h %Cblue%cr%Cred%d %Cgreen%an%Creset %s
 [merge]
   tool = vimdiff
 
