@@ -22,4 +22,4 @@
 [merge]
   tool = vimdiff
 [push]
-  default = current
+  default = tracking
