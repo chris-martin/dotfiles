@@ -21,4 +21,5 @@
   pretty = %Cgreen%h %Cblue%cr%Cred%d %Cgreen%an%Creset %s
 [merge]
   tool = vimdiff
-
+[push]
+  default = current
