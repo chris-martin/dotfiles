@@ -6,4 +6,5 @@ target
 *.swp
 *.iws
 *.pyc
+felix-cache
 
