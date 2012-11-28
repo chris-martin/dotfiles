@@ -255,9 +255,7 @@
       <action name="Close"/>
     </keybind>
     <keybind key="A-Escape">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
+      <action name="Iconify"/>
     </keybind>
     <keybind key="A-space">
       <action name="ShowMenu">
