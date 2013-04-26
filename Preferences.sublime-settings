@@ -19,5 +19,6 @@
 	"trim_automatic_white_space": false,
 	"trim_trailing_white_space_on_save": true,
 	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?_",
-	"show_panel_on_build": false
+	"show_panel_on_build": false,
+	"save_on_focus_lost": true
 }
