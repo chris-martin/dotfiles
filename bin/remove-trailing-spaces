@@ -1,0 +1,1 @@
+find dir -type f -exec sed -i 's/ *$//' '{}' ';'
