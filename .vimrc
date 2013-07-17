@@ -3,7 +3,7 @@ set lbr
 
 "map <F10> :w<CR> :lcd /home/chris/cs6241/llvm/lib/Transforms/phase1-1/<CR> :make CXX="g++ -w" ENABLE_OPTIMIZED=1<CR><CR> :lcd $PWD<CR> :cw<CR>
 "map <F10> :w<CR> :make CXX="g++ -w" ENABLE_OPTIMIZED=1<CR><CR> :lcd $PWD<CR> :cw<CR>
-map <F9> :w<CR> :make chrome<CR><CR> :lcd $PWD<CR> :cw<CR>
+map <F9> :w<CR> :make<CR><CR> :lcd $PWD<CR> :cw<CR>
 
 function! s:Saving_scroll(cmd)
   let save_scroll = &scroll
