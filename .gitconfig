@@ -15,10 +15,11 @@
   co = checkout
   ci = commit
   llog = log --date=local
+  br = "!bash -c 'gitbr'"
 [log]
   date = local
 [format]
-  pretty = %Cgreen%h %Cblue%cr%Cred%d %Cgreen%an%Creset %s
+  pretty = %C(yellow)%h%Creset%Cblue%d%Creset %Cgreen%an%Creset %Cred%cr%Creset %C(magenta)(%ci)%Creset%n%B
 [merge]
   tool = vimdiff
 [push]
