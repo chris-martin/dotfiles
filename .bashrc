@@ -1,3 +1,5 @@
+export PATH="$HOME/bin:$PATH"
+
 case "$TERM" in
     xterm*|rxvt*|screen)
         PROMPT_COMMAND='
