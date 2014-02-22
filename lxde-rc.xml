@@ -257,6 +257,11 @@
       <command>pcmanfm</command>
     </action>
   </keybind>
+  <keybind key="W-space">
+    <action name="Execute">
+      <command>synapse</command>
+    </action>
+  </keybind>
 
   <!--keybindings for LXPanel -->
   <keybind key="W-r">
