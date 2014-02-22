@@ -1,5 +1,6 @@
 export PATH="$HOME/bin:$PATH"
 
+# https://github.com/cfree3/config/blob/8491052f08a587406233483ba1cffc7fe8e169e0/.bashrc#L43
 case "$TERM" in
     xterm*|rxvt*|screen)
         PROMPT_COMMAND='
