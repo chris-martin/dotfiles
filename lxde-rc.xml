@@ -262,6 +262,11 @@
       <command>synapse</command>
     </action>
   </keybind>
+  <keybind key="W-T">
+    <action name="Execute">
+      <command>lxterminal -e byobu</command>
+    </action>
+  </keybind>
 
   <!--keybindings for LXPanel -->
   <keybind key="W-r">
