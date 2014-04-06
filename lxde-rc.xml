@@ -298,6 +298,12 @@
       </action>
   </keybind>
 
+  <keybind key="Print">
+      <action name="Execute">
+          <command>scrot</command>
+      </action>
+  </keybind>
+
 </keyboard>
 
 

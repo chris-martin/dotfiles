@@ -444,12 +444,9 @@
       </action>
     </keybind>
 
-    <!--
-      Launch gnome-screenshot when Print is pressed
-    -->
     <keybind key="Print">
       <action name="Execute">
-        <command>gnome-screenshot</command>
+        <command>scrot</command>
       </action>
     </keybind>
 
