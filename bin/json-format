@@ -1,0 +1,1 @@
+for f in "$@"; do cat "$f" | python -mjson.tool | sponge "$f"; done
