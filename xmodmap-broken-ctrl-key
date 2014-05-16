@@ -1,0 +1,11 @@
+! For keyboard with a broken control key.
+!
+! Caps_Lock is mapped to Control_L and the
+! broken Control_L key is disabled.
+!
+! setxkbmap -layout us && xmodmap ~/.xmodmap
+!
+keycode 37 =
+keycode 66 = Control_L
+clear lock
+add Control = Control_L
