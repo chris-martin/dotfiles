@@ -58,11 +58,11 @@ set hls
 "map <c-k> gt
 
 " standard key shortcuts for the system clipboard
-vmap <c-x> "+ygvd
-vmap <c-c> "+y
-vmap <c-v> x"+p
-nmap <c-v> "+p
-imap <c-v> <C-O>"+p
+"vmap <c-x> "+ygvd
+"vmap <c-c> "+y
+"vmap <c-v> x"+p
+"nmap <c-v> "+p
+"imap <c-v> <C-O>"+p
 
 " save (^\ exits visual mode)
 inoremap <F12> <Space><BS><C-\><C-O>:update<CR>
