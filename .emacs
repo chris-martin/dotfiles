@@ -6,6 +6,10 @@
 ; https://stackoverflow.com/questions/15390178/emacs-and-symbolic-links
 (setq vc-follow-symlinks 1)
 
+; Disable bindings that interfere with LXTerminal's clipboard bindings.
+(global-unset-key (kbd "C-V"))
+(global-unset-key (kbd "C-C"))
+
 ; Fix shift+up
 ; https://groups.google.com/forum/?fromgroups=#!topic/gnu.emacs.help/rR478H4BDU8
 (define-key input-decode-map "\e[1;2A" [S-up])
