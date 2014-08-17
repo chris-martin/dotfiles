@@ -1,5 +1,7 @@
 export PATH="$HOME/bin:$PATH"
 
+alias emacs='/bin/emacs -nw'
+
 # https://gist.github.com/namuol/9122237
 function fuck() {
   killall -9 $1;
@@ -15,4 +17,3 @@ function fuck() {
 alias such=git
 alias very=git
 alias wow='git status'
-
