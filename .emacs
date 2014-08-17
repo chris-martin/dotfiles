@@ -10,6 +10,17 @@
 (global-unset-key (kbd "C-V"))
 (global-unset-key (kbd "C-C"))
 
+; Enable mouse integration
+; https://bitheap.org/mouseterm/
+(unless window-system
+  (xterm-mouse-mode 1)
+  (global-set-key [mouse-4] '(lambda ()
+                               (interactive)
+                               (scroll-down 1)))
+  (global-set-key [mouse-5] '(lambda ()
+                               (interactive)
+                               (scroll-up 1))))
+
 ; Fix shift+up
 ; https://groups.google.com/forum/?fromgroups=#!topic/gnu.emacs.help/rR478H4BDU8
 (define-key input-decode-map "\e[1;2A" [S-up])
