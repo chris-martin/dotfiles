@@ -3,7 +3,7 @@
   email = ch.martin@gmail.com
 [core]
   excludesfile = ~/.gitignore
-  editor = vim
+  editor = emacs -nw
 [color]
   diff = auto
   status = auto
