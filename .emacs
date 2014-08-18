@@ -3,6 +3,15 @@
 ; Disable the menu bar
 (menu-bar-mode -1)
 
+; Show line numbers
+(global-linum-mode 1)
+
+; Format line numbers right-aligned with padding
+(setq linum-format (lambda (line)
+  (propertize (format
+    (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
+      (concat "%" (number-to-string w) "d ")) line) 'face 'linum)))
+
 ; Put backups in a designated directory
 ; http://ergoemacs.org/emacs/emacs_set_backup_into_a_directory.html
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
