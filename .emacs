@@ -1,12 +1,23 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'tmux-xterm-keys)
 
+; git modes
+; https://github.com/magit/git-modes/
 (add-to-list 'load-path "~/.emacs.d/lisp/git-modes/")
 (require 'gitattributes-mode)
 (require 'git-commit-mode)
 (require 'gitconfig-mode)
 (require 'gitignore-mode)
 (require 'git-rebase-mode)
+
+; disable spell checking in git commit mode
+; https://github.com/magit/git-modes/issues/106
+(eval-after-load "git-commit-mode"
+  '(cond
+    ((boundp 'git-commit-mode-hook) ; old
+     (remove-hook 'git-commit-mode-hook 'flyspell-mode))
+    ((boundp 'git-commit-setup-hook) ; new
+     (remove-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell))))
 
 ; http://www.emacswiki.org/emacs-en/CopyAndPaste
 ; http://www.emacswiki.org/emacs-en/xclip.el
