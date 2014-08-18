@@ -1,5 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+(require 'tmux-xterm-keys)
+
 ; Disable the menu bar
 (menu-bar-mode -1)
 
