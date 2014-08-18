@@ -2,6 +2,14 @@
 
 (require 'tmux-xterm-keys)
 
+; http://www.emacswiki.org/emacs-en/CopyAndPaste
+; http://www.emacswiki.org/emacs-en/xclip.el
+(defun paste ()
+  "Yank from the X clipboard using xclip."
+    (interactive)
+    (and mark-active (filter-buffer-substring (region-beginning) (region-end) t))
+    (insert (shell-command-to-string "xclip -o -selection clipboard")))
+
 ; Disable the menu bar
 (menu-bar-mode -1)
 
@@ -40,10 +48,6 @@
 (require 'ws-butler)
 (add-hook 'text-mode-hook 'ws-butler-mode)
 (add-hook 'prog-mode-hook 'ws-butler-mode)
-
-; Disable bindings that interfere with LXTerminal's clipboard bindings.
-(global-unset-key (kbd "C-V"))
-(global-unset-key (kbd "C-C"))
 
 ; Enable mouse integration
 ; https://bitheap.org/mouseterm/
