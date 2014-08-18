@@ -1,3 +1,5 @@
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
 ; Disable the menu bar
 (menu-bar-mode -1)
 
@@ -29,6 +31,13 @@
 (define-key input-decode-map "\e[1;2A" [S-up])
 (if (equal "xterm" (tty-type))
   (define-key input-decode-map "\e[1;2A" [S-up]))
+
+; Markdown
+; http://jblevins.org/projects/markdown-mode/
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ; https://stackoverflow.com/questions/384284/how-do-i-rename-an-open-file-in-emacs
 ; http://steve.yegge.googlepages.com/my-dot-emacs-file
