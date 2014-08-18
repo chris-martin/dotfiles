@@ -1,3 +1,6 @@
+; Disable the menu bar
+(menu-bar-mode -1)
+
 ; Put backups in a designated directory
 ; http://ergoemacs.org/emacs/emacs_set_backup_into_a_directory.html
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
