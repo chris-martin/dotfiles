@@ -20,6 +20,12 @@
 ; https://stackoverflow.com/questions/15390178/emacs-and-symbolic-links
 (setq vc-follow-symlinks 1)
 
+; Remove trailing whitespace from saved files
+; https://github.com/lewang/ws-butler
+(require 'ws-butler)
+(add-hook 'text-mode-hook 'ws-butler-mode)
+(add-hook 'prog-mode-hook 'ws-butler-mode)
+
 ; Disable bindings that interfere with LXTerminal's clipboard bindings.
 (global-unset-key (kbd "C-V"))
 (global-unset-key (kbd "C-C"))
