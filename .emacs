@@ -1,6 +1,12 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-
 (require 'tmux-xterm-keys)
+
+(add-to-list 'load-path "~/.emacs.d/lisp/git-modes/")
+(require 'gitattributes-mode)
+(require 'git-commit-mode)
+(require 'gitconfig-mode)
+(require 'gitignore-mode)
+(require 'git-rebase-mode)
 
 ; http://www.emacswiki.org/emacs-en/CopyAndPaste
 ; http://www.emacswiki.org/emacs-en/xclip.el
