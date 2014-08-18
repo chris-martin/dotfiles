@@ -12,9 +12,22 @@
     (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
       (concat "%" (number-to-string w) "d ")) line) 'face 'linum)))
 
-; Put backups in a designated directory
+
+; Make backup files even in version-controlled directories
+(setq vc-make-backup-files t)
+
+; Set directory for backup files
 ; http://ergoemacs.org/emacs/emacs_set_backup_into_a_directory.html
-(setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
+(defvar backup-dir (expand-file-name "~/.emacs.d/backup/"))
+(make-directory backup-dir t)
+(setq backup-directory-alist `(("" . ,backup-dir)))
+
+; https://stackoverflow.com/questions/2020941/how-can-i-hide-the-backup-files-that-emacs-creates
+; Set directory for autosave files
+(defvar autosave-dir (expand-file-name "~/.emacs.d/autosave/"))
+(make-directory autosave-dir t)
+(setq auto-save-list-file-prefix autosave-dir)
+(setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
 
 ; Follow symlinks without prompting
 ; https://stackoverflow.com/questions/15390178/emacs-and-symbolic-links
