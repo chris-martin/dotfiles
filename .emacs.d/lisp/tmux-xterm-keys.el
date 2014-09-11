@@ -1,89 +1,55 @@
 ; handle tmux's xterm-keys
 ; https://unix.stackexchange.com/questions/24414/shift-arrow-not-working-in-emacs-within-tmux
 (if (getenv "TMUX")
-    (progn
-      (let ((x 2) (tkey ""))
-    (while (<= x 8)
-      ;; shift
-      (if (= x 2)
-          (setq tkey "S-"))
-      ;; alt
-      (if (= x 3)
-          (setq tkey "M-"))
-      ;; alt + shift
-      (if (= x 4)
-          (setq tkey "M-S-"))
-      ;; ctrl
-      (if (= x 5)
-          (setq tkey "C-"))
-      ;; ctrl + shift
-      (if (= x 6)
-          (setq tkey "C-S-"))
-      ;; ctrl + alt
-      (if (= x 7)
-          (setq tkey "C-M-"))
-      ;; ctrl + alt + shift
-      (if (= x 8)
-          (setq tkey "C-M-S-"))
 
-      ;; arrows
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d A" x)) (kbd (format "%s<up>" tkey)))
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d B" x)) (kbd (format "%s<down>" tkey)))
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d C" x)) (kbd (format "%s<right>" tkey)))
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d D" x)) (kbd (format "%s<left>" tkey)))
-      ;; home
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d H" x)) (kbd (format "%s<home>" tkey)))
-      ;; end
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d F" x)) (kbd (format "%s<end>" tkey)))
-      ;; page up
-      (define-key key-translation-map (kbd (format "M-[ 5 ; %d ~" x)) (kbd (format "%s<prior>" tkey)))
-      ;; page down
-      (define-key key-translation-map (kbd (format "M-[ 6 ; %d ~" x)) (kbd (format "%s<next>" tkey)))
-      ;; insert
-      (define-key key-translation-map (kbd (format "M-[ 2 ; %d ~" x)) (kbd (format "%s<delete>" tkey)))
-      ;; delete
-      (define-key key-translation-map (kbd (format "M-[ 3 ; %d ~" x)) (kbd (format "%s<delete>" tkey)))
-      ;; f1
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d P" x)) (kbd (format "%s<f1>" tkey)))
-      ;; f2
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d Q" x)) (kbd (format "%s<f2>" tkey)))
-      ;; f3
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d R" x)) (kbd (format "%s<f3>" tkey)))
-      ;; f4
-      (define-key key-translation-map (kbd (format "M-[ 1 ; %d S" x)) (kbd (format "%s<f4>" tkey)))
-      ;; f5
-      (define-key key-translation-map (kbd (format "M-[ 15 ; %d ~" x)) (kbd (format "%s<f5>" tkey)))
-      ;; f6
-      (define-key key-translation-map (kbd (format "M-[ 17 ; %d ~" x)) (kbd (format "%s<f6>" tkey)))
-      ;; f7
-      (define-key key-translation-map (kbd (format "M-[ 18 ; %d ~" x)) (kbd (format "%s<f7>" tkey)))
-      ;; f8
-      (define-key key-translation-map (kbd (format "M-[ 19 ; %d ~" x)) (kbd (format "%s<f8>" tkey)))
-      ;; f9
-      (define-key key-translation-map (kbd (format "M-[ 20 ; %d ~" x)) (kbd (format "%s<f9>" tkey)))
-      ;; f10
-      (define-key key-translation-map (kbd (format "M-[ 21 ; %d ~" x)) (kbd (format "%s<f10>" tkey)))
-      ;; f11
-      (define-key key-translation-map (kbd (format "M-[ 23 ; %d ~" x)) (kbd (format "%s<f11>" tkey)))
-      ;; f12
-      (define-key key-translation-map (kbd (format "M-[ 24 ; %d ~" x)) (kbd (format "%s<f12>" tkey)))
-      ;; f13
-      (define-key key-translation-map (kbd (format "M-[ 25 ; %d ~" x)) (kbd (format "%s<f13>" tkey)))
-      ;; f14
-      (define-key key-translation-map (kbd (format "M-[ 26 ; %d ~" x)) (kbd (format "%s<f14>" tkey)))
-      ;; f15
-      (define-key key-translation-map (kbd (format "M-[ 28 ; %d ~" x)) (kbd (format "%s<f15>" tkey)))
-      ;; f16
-      (define-key key-translation-map (kbd (format "M-[ 29 ; %d ~" x)) (kbd (format "%s<f16>" tkey)))
-      ;; f17
-      (define-key key-translation-map (kbd (format "M-[ 31 ; %d ~" x)) (kbd (format "%s<f17>" tkey)))
-      ;; f18
-      (define-key key-translation-map (kbd (format "M-[ 32 ; %d ~" x)) (kbd (format "%s<f18>" tkey)))
-      ;; f19
-      (define-key key-translation-map (kbd (format "M-[ 33 ; %d ~" x)) (kbd (format "%s<f19>" tkey)))
-      ;; f20
-      (define-key key-translation-map (kbd (format "M-[ 34 ; %d ~" x)) (kbd (format "%s<f20>" tkey)))
+;;; screen.el --- define function key sequences and standard colors for screen
+(load "term/xterm")
 
-      (setq x (+ x 1))))))
+;; derived from Emacs 22.1 term/xterm.el
+
+(defun terminal-init-screen ()
+  "Terminal initialization function for screen."
+
+  (let ((map (make-sparse-keymap)))
+
+    ;; tmux with its xterm-keys option turned on will generate these
+    (define-key map "\e[1;2A" [S-up])
+    (define-key map "\e[1;2B" [S-down])
+    (define-key map "\e[1;2C" [S-right])
+    (define-key map "\e[1;2D" [S-left])
+    (define-key map "\e[1;2F" [S-end])
+    (define-key map "\e[1;2H" [S-home])
+
+    (define-key map "\e[1;5A" [C-up])
+    (define-key map "\e[1;5B" [C-down])
+    (define-key map "\e[1;5C" [C-right])
+    (define-key map "\e[1;5D" [C-left])
+    (define-key map "\e[1;5F" [C-end])
+    (define-key map "\e[1;5H" [C-home])
+
+    (define-key map "\e[1;6A" [C-S-up])
+    (define-key map "\e[1;6B" [C-S-down])
+    (define-key map "\e[1;6C" [C-S-right])
+    (define-key map "\e[1;6D" [C-S-left])
+    (define-key map "\e[1;6F" [C-S-end])
+    (define-key map "\e[1;6H" [C-S-home])
+
+    (define-key map "\e[1;3A" [A-up])
+    (define-key map "\e[1;3B" [A-down])
+    (define-key map "\e[1;3C" [A-right])
+    (define-key map "\e[1;3D" [A-left])
+    (define-key map "\e[1;3F" [A-end])
+    (define-key map "\e[1;3H" [A-home])
+
+    ;; This way we don't override terminfo-derived settings or settings
+    ;; made in the .emacs file.
+    (set-keymap-parent map (keymap-parent function-key-map))
+    (set-keymap-parent function-key-map map))
+
+  ;; Use the xterm color initialization code.
+  (xterm-register-default-colors)
+  (tty-set-up-initial-frame-faces))
+
+)
 
 (provide 'tmux-xterm-keys)
