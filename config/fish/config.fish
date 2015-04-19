@@ -1,6 +1,6 @@
 set --erase fish_greeting
 
-set PATH $HOME/bin $HOME/bitcoin/bin $HOME/dotfiles/bin $PATH
+set PATH $HOME/bin $HOME/bitcoin/current/bin $HOME/dotfiles/bin $PATH
 
 source ~/.config/fish/virtual.fish
 
