@@ -1,4 +1,5 @@
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bitcoin/current/bin:$PATH"
 
 alias emacs='/bin/emacs -nw'
 
