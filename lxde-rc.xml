@@ -300,7 +300,7 @@
 
   <keybind key="Print">
       <action name="Execute">
-          <command>scrot</command>
+          <command>scrot '/home/chris/screenshot/%Y-%m-%d-%H-%M-%S_$wx$h.png'</command>
       </action>
   </keybind>
 
