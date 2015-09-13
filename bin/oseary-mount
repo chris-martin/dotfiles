@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# You may need to SSH to the host before running this script to accept
+# the server's public key. Otherwise, sshfs will just hang indefinitely.
+
+echo "$OSEARY_PASSWORD" | \
+  sshfs chris@"$OSEARY_ADDRESS": /home/chris/mnt/oseary/ \
+  -o ServerAliveInterval=30,password_stdin,allow_other
