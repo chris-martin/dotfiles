@@ -2,6 +2,8 @@ set --erase fish_greeting
 
 set PATH $HOME/bin $HOME/bitcoin/current/bin $HOME/dotfiles/bin $HOME/.cabal/bin $PATH
 
+set -x ANDROID_HOME $HOME/android
+
 source ~/.config/fish/virtual.fish
 
 alias emacs '/bin/emacs -nw'
