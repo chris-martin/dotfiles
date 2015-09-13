@@ -1,5 +1,4 @@
-.idea
 *.ipr
-*.iml
 *.swp
-*.egg
+.idea
+*.iml
